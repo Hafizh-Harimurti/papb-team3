@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.contactListView.adapter = Adapter(this, contactArrayList)
 
-        binding.contactListView.setOnItemClickListener { adapterView, view, i, l ->
+        binding.contactListView.setOnItemClickListener { adapterView, view, i, j->
             findNavController(R.id.navHostFragment).navigate(R.id.action_blankFragment_to_contactInfo)
 
         }
