@@ -54,6 +54,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.contactListView.adapter = Adapter(this, contactArrayList)
 
+        binding.contactListView.setOnItemClickListener { adapterView, view, i, l ->
+            findNavController(R.id.navHostFragment).navigate(R.id.action_blankFragment_to_contactInfo)
+
+        }
+
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
