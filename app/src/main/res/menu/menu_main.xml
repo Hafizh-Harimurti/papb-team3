@@ -13,4 +13,10 @@
         android:title="Edit"
         android:visible="false"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/menu_confirm"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="Confirm"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
 </menu>

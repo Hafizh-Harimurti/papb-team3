@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.navArgument
+import com.example.tugaspapbkelompok3.databinding.FragmentContactInfoBinding
 
 
 /**
@@ -15,6 +16,7 @@ import androidx.navigation.navArgument
  * create an instance of this fragment.
  */
 class ContactInfo : Fragment() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -29,6 +31,7 @@ class ContactInfo : Fragment() {
         view.findViewById<TextView>(R.id.contactInfoIsiNama).text = arguments?.getString("nama")
         view.findViewById<TextView>(R.id.contactInfoIsiNo).text = arguments?.getString("nomor")
         view.findViewById<TextView>(R.id.contactInfoIsiEmail).text = arguments?.getString("email")
+        view.findViewById<TextView>(R.id.contactInfoIsiDesc).text = arguments?.getString("deskripsi")
         super.onViewCreated(view, savedInstanceState)
     }
 

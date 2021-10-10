@@ -60,7 +60,8 @@ class MainActivity : AppCompatActivity() {
             val nama = view.findViewById<TextView>(R.id.tv_name).text.toString()
             val email = view.findViewById<TextView>(R.id.tv_email).text.toString()
             val nomor = view.findViewById<TextView>(R.id.tv_number).text.toString()
-            val bundle = bundleOf("nama" to nama, "email" to email, "nomor" to nomor)
+            val deskripsi = contactArrayList[i].description
+            val bundle = bundleOf("nama" to nama, "email" to email, "nomor" to nomor, "deskripsi" to deskripsi)
             findNavController(R.id.navHostFragment).navigate(R.id.action_blankFragment_to_contactInfo,bundle)
 
         }

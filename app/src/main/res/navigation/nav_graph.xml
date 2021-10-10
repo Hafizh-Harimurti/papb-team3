@@ -21,7 +21,13 @@
         android:id="@+id/addOrEditFragment"
         android:name="com.example.tugaspapbkelompok3.AddOrEditFragment"
         android:label="fragment_add_or_edit"
-        tools:layout="@layout/fragment_add_or_edit" />
+        tools:layout="@layout/fragment_add_or_edit" >
+        <action
+            android:id="@+id/action_addOrEditFragment_to_contactInfo"
+            app:destination="@id/contactInfo"
+            app:popUpTo="@id/contactInfo"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/contactInfo"
         android:name="com.example.tugaspapbkelompok3.ContactInfo"
