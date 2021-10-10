@@ -26,9 +26,10 @@ class ContactInfo : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.findViewById<TextView>(R.id.contactInfoIsiNama).text = arguments?.getString("nama")
-        view.findViewById<TextView>(R.id.contactInfoIsiNo).text = arguments?.getString("nomor")
+        view.findViewById<TextView>(R.id.contactInfoIsiNama).text = arguments?.getString("name")
+        view.findViewById<TextView>(R.id.contactInfoIsiNo).text = arguments?.getString("number")
         view.findViewById<TextView>(R.id.contactInfoIsiEmail).text = arguments?.getString("email")
+        view.findViewById<TextView>(R.id.contactInfoIsiDesc).text = arguments?.getString("desc")
         super.onViewCreated(view, savedInstanceState)
     }
 

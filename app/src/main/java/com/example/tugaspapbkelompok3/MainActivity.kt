@@ -57,10 +57,11 @@ class MainActivity : AppCompatActivity() {
         binding.contactListView.adapter = Adapter(this, contactArrayList)
 
         binding.contactListView.setOnItemClickListener { adapterView, view, i, j->
-            val nama = view.findViewById<TextView>(R.id.tv_name).text.toString()
-            val email = view.findViewById<TextView>(R.id.tv_email).text.toString()
-            val nomor = view.findViewById<TextView>(R.id.tv_number).text.toString()
-            val bundle = bundleOf("nama" to nama, "email" to email, "nomor" to nomor)
+            val nameValue = view.findViewById<TextView>(R.id.tv_name).text.toString()
+            val emailValue = view.findViewById<TextView>(R.id.tv_email).text.toString()
+            val numberValue = view.findViewById<TextView>(R.id.tv_number).text.toString()
+            val descValue = description[name.indexOf(nameValue)]//temp?
+            val bundle = bundleOf("name" to nameValue, "email" to emailValue, "number" to numberValue, "desc" to descValue)
             findNavController(R.id.navHostFragment).navigate(R.id.action_blankFragment_to_contactInfo,bundle)
 
         }
