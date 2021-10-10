@@ -75,8 +75,8 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val navCOntroller = findNavController(R.id.navHostFragment)
         when (item.itemId){
-            R.id.menu_add -> navCOntroller.navigate(R.id.action_blankFragment_to_contactInfo)
-            R.id.menu_edit -> navCOntroller.navigateUp()
+            R.id.menu_add -> navCOntroller.navigate(R.id.action_blankFragment_to_addOrEditFragment)
+            R.id.menu_edit -> navCOntroller.navigate(R.id.action_contactInfo_to_addOrEditFragment)
         }
         return super.onOptionsItemSelected(item)
     }

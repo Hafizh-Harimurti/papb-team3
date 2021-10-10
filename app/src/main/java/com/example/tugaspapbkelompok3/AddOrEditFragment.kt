@@ -3,6 +3,7 @@ package com.example.tugaspapbkelompok3
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 
@@ -34,9 +35,14 @@ class AddOrEditFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        setHasOptionsMenu(true)
         return inflater.inflate(R.layout.fragment_add_or_edit, container, false)
     }
-
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        menu.removeItem(R.id.menu_add)
+        menu.removeItem(R.id.menu_edit)
+        super.onPrepareOptionsMenu(menu)
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
