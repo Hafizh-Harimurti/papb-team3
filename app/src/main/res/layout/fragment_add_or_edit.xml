@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddOrEditFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/BackButtonText"
+            android:textSize="18sp"
+            app:layout_constraintHeight_percent="0.05"
+            app:layout_constraintStart_toStartOf="@id/leftMargin"
+            app:layout_constraintTop_toTopOf="@+id/topMargin"
+            app:layout_constraintWidth_percent="0.1" />
+
+        <TextView
+            android:id="@+id/addOrEditTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/AddContactFragmentTitle"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/addOrEditButton"
+            app:layout_constraintEnd_toStartOf="@id/addOrEditButton"
+            app:layout_constraintStart_toEndOf="@id/backButton"
+            app:layout_constraintTop_toTopOf="@+id/addOrEditButton" />
+
+        <Button
+            android:id="@+id/addOrEditButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/AddFragmentText"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/rightMargin"
+            app:layout_constraintHeight_percent="0.05"
+            app:layout_constraintTop_toTopOf="@+id/topMargin"
+            app:layout_constraintWidth_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rightMargin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.96" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/topMargin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.01" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
