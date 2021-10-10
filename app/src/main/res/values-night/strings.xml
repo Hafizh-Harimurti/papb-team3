@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="AddFragmentText">Add</string>
+    <string name="AddContactFragmentTitle">Add Contact</string>
+    <string name="BackButtonText">Back</string>
+</resources>
