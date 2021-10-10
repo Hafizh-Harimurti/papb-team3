@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 
 
 /**
@@ -16,10 +17,21 @@ class ContactInfo : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
+
+    private lateinit var myTextView: TextView
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contact_info, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_contact_info, container, false)
+        myTextView = view.findViewById<View>(R.id.contactInfoIsiNama) as TextView
+
+        val bundle = arguments
+////        val message = bundle!!.getString("name")
+//        println("=============")
+//        print(bundle)
+        myTextView.text = "hmm"
+        return view
     }
 
 }

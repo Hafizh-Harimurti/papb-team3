@@ -1,5 +1,6 @@
 package com.example.tugaspapbkelompok3
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.tugaspapbkelompok3.databinding.ActivityMainBinding
@@ -45,6 +46,21 @@ class MainActivity : AppCompatActivity() {
             contactArrayList.add(contact)
         }
 
-        binding.contactListView.adapter = Adapter(this, contactArrayList)
+        binding.contactListView.adapter = Adapter(this, contactArrayList);
+        binding.contactListView.isClickable = true;
+        binding.contactListView.setOnItemClickListener{ parent, view, position, id ->
+            val name = name[position]
+            val email = email[position]
+            val number = number[position]
+            val description = description[position]
+
+            val i = Intent(this, ContactDetailsActivity::class.java);
+            i.putExtra("name", name);
+            i.putExtra("email", email);
+            i.putExtra("number", number);
+            i.putExtra("description", description);
+            startActivity(i)
+        }
+
     }
 }
