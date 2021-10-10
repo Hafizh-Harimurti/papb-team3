@@ -12,10 +12,10 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/backButton"
+            android:id="@+id/resetButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/BackButtonText"
+            android:text="@string/ResetButtonText"
             android:textSize="18sp"
             app:layout_constraintHeight_percent="0.05"
             app:layout_constraintStart_toStartOf="@id/leftMargin"
@@ -30,7 +30,7 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/addOrEditButton"
             app:layout_constraintEnd_toStartOf="@id/addOrEditButton"
-            app:layout_constraintStart_toEndOf="@id/backButton"
+            app:layout_constraintStart_toEndOf="@id/resetButton"
             app:layout_constraintTop_toTopOf="@+id/addOrEditButton" />
 
         <Button
@@ -43,6 +43,141 @@
             app:layout_constraintHeight_percent="0.05"
             app:layout_constraintTop_toTopOf="@+id/topMargin"
             app:layout_constraintWidth_percent="0.1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/leftMargin"
+            app:layout_constraintTop_toBottomOf="@id/resetButton">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/contactInfoJudulNama"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Nama"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/contactInfoDiv0"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider" />
+
+                <EditText
+                    android:id="@+id/editTextTextPersonName3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Contact Name"
+                    android:autofillHints="name"
+                    android:inputType="textPersonName" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/contactInfoJudulNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="No"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/contactInfoDiv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider" />
+
+                <EditText
+                    android:id="@+id/addOrEditContactPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Contact Phone Number"
+                    android:autofillHints="phone"
+                    android:inputType="phone" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/contactInfoJudulEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Email"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/contactInfoDiv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider" />
+
+                <EditText
+                    android:id="@+id/addOrEditContactEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Contact Email"
+                    android:inputType="textEmailAddress"
+                    android:autofillHints="emailAddress"
+                    android:minHeight="48dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/contactInfoJudulDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Description"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/contactInfoDiv3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider" />
+
+                <EditText
+                    android:id="@+id/addOrEditContactDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    android:hint="Contact Description" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/rightMargin"
