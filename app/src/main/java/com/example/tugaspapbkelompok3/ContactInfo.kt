@@ -1,10 +1,9 @@
 package com.example.tugaspapbkelompok3
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 
 
 /**
@@ -19,7 +18,13 @@ class ContactInfo : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
+        setHasOptionsMenu(true)
         return inflater.inflate(R.layout.fragment_contact_info, container, false)
     }
 
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        menu.removeItem(R.id.menu_add)
+        menu.findItem(R.id.menu_edit).setVisible(true)
+        super.onPrepareOptionsMenu(menu)
+    }
 }
