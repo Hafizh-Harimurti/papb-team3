@@ -2,8 +2,11 @@ package com.example.tugaspapbkelompok3
 
 import android.os.Bundle
 import android.view.*
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import androidx.navigation.navArgument
 
 
 /**
@@ -20,6 +23,13 @@ class ContactInfo : Fragment() {
         // Inflate the layout for this fragment
         setHasOptionsMenu(true)
         return inflater.inflate(R.layout.fragment_contact_info, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        view.findViewById<TextView>(R.id.contactInfoIsiNama).text = arguments?.getString("nama")
+        view.findViewById<TextView>(R.id.contactInfoIsiNo).text = arguments?.getString("nomor")
+        view.findViewById<TextView>(R.id.contactInfoIsiEmail).text = arguments?.getString("email")
+        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {

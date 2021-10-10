@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.navigation.navArgument
 import androidx.navigation.ui.AppBarConfiguration
@@ -55,7 +57,11 @@ class MainActivity : AppCompatActivity() {
         binding.contactListView.adapter = Adapter(this, contactArrayList)
 
         binding.contactListView.setOnItemClickListener { adapterView, view, i, j->
-            findNavController(R.id.navHostFragment).navigate(R.id.action_blankFragment_to_contactInfo)
+            val nama = view.findViewById<TextView>(R.id.tv_name).text.toString()
+            val email = view.findViewById<TextView>(R.id.tv_email).text.toString()
+            val nomor = view.findViewById<TextView>(R.id.tv_number).text.toString()
+            val bundle = bundleOf("nama" to nama, "email" to email, "nomor" to nomor)
+            findNavController(R.id.navHostFragment).navigate(R.id.action_blankFragment_to_contactInfo,bundle)
 
         }
 
