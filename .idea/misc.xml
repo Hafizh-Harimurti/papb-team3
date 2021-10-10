@@ -8,6 +8,8 @@
         <entry key="..\:/Users/Acer/AndroidStudioProjects/papb-team3/app/src/main/res/layout/activity_main.xml" value="0.209375" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/papb-team3/app/src/main/res/layout/fragment_contact_info.xml" value="0.22" />
         <entry key="..\:/Users/Lenovo/Documents/GitWorkspace/papb-team3/app/src/main/res/layout/activity_main.xml" value="0.12771739130434784" />
+        <entry key="..\:/Users/Lenovo/Documents/GitWorkspace/papb-team3/app/src/main/res/layout/fragment_add_or_edit.xml" value="0.22" />
+        <entry key="..\:/Users/Lenovo/Documents/GitWorkspace/papb-team3/app/src/main/res/layout/fragment_contact_info.xml" value="0.1" />
       </map>
     </option>
   </component>
@@ -16,5 +18,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.22" />
+      </ProjectState>
+    </option>
   </component>
 </project>
