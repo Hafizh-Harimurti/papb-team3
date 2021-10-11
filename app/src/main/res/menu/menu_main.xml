@@ -13,4 +13,9 @@
         android:title="Edit"
         android:visible="false"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/menu_apply"
+        android:title="Apply"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
 </menu>

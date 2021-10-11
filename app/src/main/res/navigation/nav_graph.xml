@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/blankFragment"
         android:name="com.example.tugaspapbkelompok3.BlankFragment"
-        android:label="fragment_blank"
-        tools:layout="@layout/fragment_blank" >
+        android:label="Contact List"
+        tools:layout="@layout/fragment_blank">
         <action
             android:id="@+id/action_blankFragment_to_contactInfo"
             app:destination="@id/contactInfo" />
@@ -20,13 +20,17 @@
     <fragment
         android:id="@+id/addOrEditFragment"
         android:name="com.example.tugaspapbkelompok3.AddOrEditFragment"
-        android:label="fragment_add_or_edit"
-        tools:layout="@layout/fragment_add_or_edit" />
+        android:label="Add or Edit Contact"
+        tools:layout="@layout/fragment_add_or_edit">
+        <action
+            android:id="@+id/action_addOrEditFragment_to_blankFragment"
+            app:destination="@id/blankFragment" />
+    </fragment>
     <fragment
         android:id="@+id/contactInfo"
         android:name="com.example.tugaspapbkelompok3.ContactInfo"
-        android:label="fragment_contact_info"
-        tools:layout="@layout/fragment_contact_info" >
+        android:label="Contact Details"
+        tools:layout="@layout/fragment_contact_info">
         <action
             android:id="@+id/action_contactInfo_to_addOrEditFragment"
             app:destination="@id/addOrEditFragment" />

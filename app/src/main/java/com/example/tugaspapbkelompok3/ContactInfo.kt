@@ -35,6 +35,7 @@ class ContactInfo : Fragment() {
 
     override fun onPrepareOptionsMenu(menu: Menu) {
         menu.removeItem(R.id.menu_add)
+        menu.removeItem(R.id.menu_apply)
         menu.findItem(R.id.menu_edit).setVisible(true)
         super.onPrepareOptionsMenu(menu)
     }

@@ -41,6 +41,7 @@ class AddOrEditFragment : Fragment() {
     override fun onPrepareOptionsMenu(menu: Menu) {
         menu.removeItem(R.id.menu_add)
         menu.removeItem(R.id.menu_edit)
+        menu.findItem(R.id.menu_apply).setVisible(true)
         super.onPrepareOptionsMenu(menu)
     }
     companion object {
