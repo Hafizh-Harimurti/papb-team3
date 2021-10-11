@@ -57,12 +57,20 @@ class MainActivity : AppCompatActivity() {
         binding.contactListView.adapter = Adapter(this, contactArrayList)
 
         binding.contactListView.setOnItemClickListener { adapterView, view, i, j->
-            val nameValue = view.findViewById<TextView>(R.id.tv_name).text.toString()
-            val emailValue = view.findViewById<TextView>(R.id.tv_email).text.toString()
-            val numberValue = view.findViewById<TextView>(R.id.tv_number).text.toString()
-            val descValue = description[name.indexOf(nameValue)]//temp?
-            val bundle = bundleOf("name" to nameValue, "email" to emailValue, "number" to numberValue, "desc" to descValue)
-            findNavController(R.id.navHostFragment).navigate(R.id.action_blankFragment_to_contactInfo,bundle)
+            val navController = findNavController(R.id.navHostFragment)
+            if (navController.currentDestination?.id == R.id.blankFragment) {
+                val nameValue = view.findViewById<TextView>(R.id.tv_name).text.toString()
+                val emailValue = view.findViewById<TextView>(R.id.tv_email).text.toString()
+                val numberValue = view.findViewById<TextView>(R.id.tv_number).text.toString()
+                val descValue = description[name.indexOf(nameValue)]//temp?
+                val bundle = bundleOf(
+                    "name" to nameValue,
+                    "email" to emailValue,
+                    "number" to numberValue,
+                    "desc" to descValue
+                )
+                navController.navigate(R.id.action_blankFragment_to_contactInfo, bundle)
+            }
 
         }
 
@@ -88,17 +96,26 @@ class MainActivity : AppCompatActivity() {
         val navCOntroller = findNavController(R.id.navHostFragment)
         when (item.itemId){
             R.id.menu_add ->
-                navCOntroller.navigate(R.id.action_blankFragment_to_addOrEditFragment)
+                if (navCOntroller.currentDestination?.id == R.id.blankFragment)
+                    navCOntroller.navigate(R.id.action_blankFragment_to_addOrEditFragment)
             R.id.menu_edit -> {
-                val nameValue = findViewById<TextView>(R.id.contactInfoIsiNama).text.toString()
-                val numberValue = findViewById<TextView>(R.id.contactInfoIsiNo).text.toString()
-                val emailValue = findViewById<TextView>(R.id.contactInfoIsiNo).text.toString()
-                val descValue = findViewById<TextView>(R.id.contactInfoIsiDesc).text.toString()
-                val bundle = bundleOf("name" to nameValue, "email" to emailValue, "number" to numberValue, "desc" to descValue)
-                navCOntroller.navigate(R.id.action_contactInfo_to_addOrEditFragment, bundle)
+                if (navCOntroller.currentDestination?.id == R.id.contactInfo) {
+                    val nameValue = findViewById<TextView>(R.id.contactInfoIsiNama).text.toString()
+                    val numberValue = findViewById<TextView>(R.id.contactInfoIsiNo).text.toString()
+                    val emailValue = findViewById<TextView>(R.id.contactInfoIsiEmail).text.toString()
+                    val descValue = findViewById<TextView>(R.id.contactInfoIsiDesc).text.toString()
+                    val bundle = bundleOf(
+                        "name" to nameValue,
+                        "email" to emailValue,
+                        "number" to numberValue,
+                        "desc" to descValue
+                    )
+                    navCOntroller.navigate(R.id.action_contactInfo_to_addOrEditFragment, bundle)
+                }
             }
             R.id.menu_apply ->
-                navCOntroller.navigate(R.id.action_addOrEditFragment_to_blankFragment)
+                if (navCOntroller.currentDestination?.id == R.id.addOrEditFragment)
+                    navCOntroller.navigate(R.id.action_addOrEditFragment_to_blankFragment)
         }
         return super.onOptionsItemSelected(item)
     }
