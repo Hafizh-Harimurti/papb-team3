@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/addOrEditFrameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddOrEditFragment">
@@ -42,8 +43,10 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Contact Name"
+                    android:text=""
                     android:inputType="textPersonName"
-                    android:maxLength="40" />
+                    android:maxLength="40"
+                    android:minHeight="48dp" />
 
             </LinearLayout>
 
@@ -73,8 +76,10 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Contact Phone Number"
+                    android:text=""
                     android:inputType="phone"
-                    android:maxLength="16" />
+                    android:maxLength="16"
+                    android:minHeight="48dp" />
 
             </LinearLayout>
 
@@ -104,8 +109,10 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Contact Email"
+                    android:text=""
+                    android:inputType="textEmailAddress"
                     android:maxLength="40"
-                    android:inputType="textEmailAddress" />
+                    android:minHeight="48dp" />
 
             </LinearLayout>
 
@@ -135,8 +142,10 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Contact Description"
+                    android:text=""
                     android:inputType="textMultiLine"
-                    android:maxLength="100" />
+                    android:maxLength="100"
+                    android:minHeight="48dp" />
 
             </LinearLayout>
 

@@ -14,8 +14,8 @@
         android:visible="false"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/menu_confirm"
-        android:icon="@android:drawable/ic_menu_send"
+        android:id="@+id/menu_save_changes"
+        android:icon="@android:drawable/ic_menu_save"
         android:title="Confirm"
         android:visible="false"
         app:showAsAction="ifRoom" />

@@ -5,8 +5,6 @@ import android.view.*
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
-import androidx.navigation.navArgument
 
 
 /**
@@ -15,6 +13,8 @@ import androidx.navigation.navArgument
  * create an instance of this fragment.
  */
 class ContactInfo : Fragment() {
+    private var bundle : Bundle? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -26,6 +26,7 @@ class ContactInfo : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        bundle = arguments
         view.findViewById<TextView>(R.id.contactInfoIsiNama).text = arguments?.getString("name")
         view.findViewById<TextView>(R.id.contactInfoIsiNo).text = arguments?.getString("number")
         view.findViewById<TextView>(R.id.contactInfoIsiEmail).text = arguments?.getString("email")
@@ -35,7 +36,16 @@ class ContactInfo : Fragment() {
 
     override fun onPrepareOptionsMenu(menu: Menu) {
         menu.removeItem(R.id.menu_add)
+        menu.removeItem(R.id.menu_save_changes)
         menu.findItem(R.id.menu_edit).setVisible(true)
         super.onPrepareOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val navController = findNavController()
+        when (item.itemId){
+            R.id.menu_edit -> navController.navigate(R.id.action_contactInfo_to_addOrEditFragment, bundle)
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

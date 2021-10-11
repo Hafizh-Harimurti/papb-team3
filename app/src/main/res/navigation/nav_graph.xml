@@ -27,6 +27,11 @@
             app:destination="@id/contactInfo"
             app:popUpTo="@id/contactInfo"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_addOrEditFragment_to_blankFragment"
+            app:destination="@id/blankFragment"
+            app:popUpTo="@id/blankFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/contactInfo"
