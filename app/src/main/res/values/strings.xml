@@ -5,4 +5,5 @@
     <string name="AddFragmentText">Add</string>
     <string name="AddContactFragmentTitle">Add Contact</string>
     <string name="BackButtonText"><b>Back</b></string>
+    <string name="AddOrEditFragmentLabel">Input New Data</string>
 </resources>
