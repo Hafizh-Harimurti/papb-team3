@@ -59,10 +59,6 @@ class AddOrEditFragment : Fragment() {
         val navController = findNavController()
         when (item.itemId){
             R.id.menu_save_changes -> {
-                if(activity?.currentFocus != null){
-                    val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                    imm.hideSoftInputFromWindow(view?.windowToken, 0)
-                }
                 var newPosition: Int
                 var (result, contact) = modifyMainActivityListView(position, mainActivity)
                 if(result == "Invalid"){
@@ -101,5 +97,10 @@ class AddOrEditFragment : Fragment() {
         }
         mainActivity.lvAdapter.notifyDataSetChanged()
         return Pair("Success", contact)
+    }
+
+    override fun onDestroyView() {
+        mainActivity.hideKeyboard()
+        super.onDestroyView()
     }
 }

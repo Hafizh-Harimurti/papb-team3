@@ -1,9 +1,12 @@
 package com.example.tugaspapbkelompok3
 
+import android.app.Activity
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
@@ -92,5 +95,10 @@ class MainActivity : AppCompatActivity() {
             R.id.menu_add -> navController.navigate(R.id.action_blankFragment_to_addOrEditFragment)
         }
         return super.onOptionsItemSelected(item)
+    }
+    public fun hideKeyboard(){
+        val view = currentFocus
+        val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(view?.windowToken, 0)
     }
 }
