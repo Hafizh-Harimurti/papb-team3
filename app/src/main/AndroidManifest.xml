@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TugasPAPBKelompok3">
         <activity
-            android:name=".ContactDetailsActivity"
-            android:exported="true" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

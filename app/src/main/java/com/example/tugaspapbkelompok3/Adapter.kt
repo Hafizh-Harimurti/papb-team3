@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 
-class Adapter(private val context : Activity, private val arrayList: ArrayList<Contact>): ArrayAdapter<Contact>
+class Adapter(private val context : Activity, private val arrayList: Array<Contact>): ArrayAdapter<Contact>
     (context, R.layout.list_item,arrayList) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
