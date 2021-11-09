@@ -30,8 +30,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val db = Room.databaseBuilder(applicationContext, DB::class.java, "contacts").allowMainThreadQueries().build()
-        val contactDAO = db.ContactDAO()
 
         //contactDAO.newContacts(Contact("name","123","email@email.com","descTest"))
 
