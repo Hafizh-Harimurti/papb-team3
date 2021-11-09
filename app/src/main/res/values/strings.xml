@@ -4,5 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="AddFragmentText">Add</string>
     <string name="AddContactFragmentTitle">Add Contact</string>
-    <string name="ResetButtonText"><b>Reset</b></string>
+    <string name="BackButtonText"><b>Back</b></string>
+    <string name="AddOrEditFragmentLabel">Input New Data</string>
 </resources>

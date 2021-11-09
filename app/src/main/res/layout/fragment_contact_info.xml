@@ -4,134 +4,132 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:focusable="true"
+    android:clickable="true"
     tools:context=".ContactInfo">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/contactInfoJudulNama"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Nama"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/contactInfoDiv0"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:id="@+id/contactInfoIsiNama"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:text="Hello Hello"
+                android:textSize="20sp" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/contactInfoJudulNama"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="Nama"
-                    android:textSize="34sp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:id="@+id/contactInfoDiv0"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
-
-                <TextView
-                    android:id="@+id/contactInfoIsiNama"
-                    android:layout_width="match_parent"
-                    android:layout_height="32dp"
-                    android:text="Hello Hello"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/contactInfoJudulNo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_height="48dp"
+                android:text="No"
+                android:textSize="34sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/contactInfoJudulNo"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="No"
-                    android:textSize="34sp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:id="@+id/contactInfoDiv1"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
-
-                <TextView
-                    android:id="@+id/contactInfoIsiNo"
-                    android:layout_width="match_parent"
-                    android:layout_height="32dp"
-                    android:text="081234567890"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <View
+                android:id="@+id/contactInfoDiv1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
 
-                <TextView
-                    android:id="@+id/contactInfoJudulEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="Email"
-                    android:textSize="34sp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:id="@+id/contactInfoDiv2"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
-
-                <TextView
-                    android:id="@+id/contactInfoIsiEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="32dp"
-                    android:text="Hello.H@email.com"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/contactInfoIsiNo"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/contactInfoJudulDesc"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="Description"
-                    android:textSize="34sp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:id="@+id/contactInfoDiv3"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
-
-                <TextView
-                    android:id="@+id/contactInfoIsiDesc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                    android:textSize="20sp" />
-
-            </LinearLayout>
+                android:layout_height="32dp"
+                android:text="081234567890"
+                android:textSize="20sp" />
 
         </LinearLayout>
-    </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/contactInfoJudulEmail"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Email"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/contactInfoDiv2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:id="@+id/contactInfoIsiEmail"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:text="Hello.H@email.com"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/contactInfoJudulDesc"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Description"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/contactInfoDiv3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:id="@+id/contactInfoIsiDesc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>

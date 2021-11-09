@@ -2,204 +2,151 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/addOrEditFrameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:focusable="true"
+    android:clickable="true"
     tools:context=".AddOrEditFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/resetButton"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ResetButtonText"
-            android:textSize="18sp"
-            app:layout_constraintHeight_percent="0.05"
-            app:layout_constraintStart_toStartOf="@id/leftMargin"
-            app:layout_constraintTop_toTopOf="@+id/topMargin"
-            app:layout_constraintWidth_percent="0.1" />
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/addOrEditTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/AddContactFragmentTitle"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/addOrEditButton"
-            app:layout_constraintEnd_toStartOf="@id/addOrEditButton"
-            app:layout_constraintStart_toEndOf="@id/resetButton"
-            app:layout_constraintTop_toTopOf="@+id/addOrEditButton" />
+            <TextView
+                android:id="@+id/contactInfoJudulNama"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Nama"
+                android:textSize="34sp"
+                android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/addOrEditButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/AddFragmentText"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@+id/rightMargin"
-            app:layout_constraintHeight_percent="0.05"
-            app:layout_constraintTop_toTopOf="@+id/topMargin"
-            app:layout_constraintWidth_percent="0.1" />
+            <View
+                android:id="@+id/contactInfoDiv0"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <EditText
+                android:id="@+id/addOrEditContactName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Contact Name"
+                android:inputType="textPersonName"
+                android:maxLength="40"
+                android:minHeight="48dp"
+                android:text="" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="@id/leftMargin"
-            app:layout_constraintTop_toBottomOf="@id/resetButton">
+            android:padding="16dp">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+            <TextView
+                android:id="@+id/contactInfoJudulNo"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="No"
+                android:textSize="34sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/contactInfoJudulNama"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="Nama"
-                    android:textSize="34sp"
-                    android:textStyle="bold" />
+            <View
+                android:id="@+id/contactInfoDiv1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
 
-                <View
-                    android:id="@+id/contactInfoDiv0"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
-
-                <EditText
-                    android:id="@+id/editTextTextPersonName3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Contact Name"
-                    android:autofillHints="name"
-                    android:inputType="textPersonName" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <EditText
+                android:id="@+id/addOrEditPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/contactInfoJudulNo"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="No"
-                    android:textSize="34sp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:id="@+id/contactInfoDiv1"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
-
-                <EditText
-                    android:id="@+id/addOrEditContactPhone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Contact Phone Number"
-                    android:autofillHints="phone"
-                    android:inputType="phone" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/contactInfoJudulEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="Email"
-                    android:textSize="34sp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:id="@+id/contactInfoDiv2"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
-
-                <EditText
-                    android:id="@+id/addOrEditContactEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Contact Email"
-                    android:inputType="textEmailAddress"
-                    android:autofillHints="emailAddress"
-                    android:minHeight="48dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/contactInfoJudulDesc"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="Description"
-                    android:textSize="34sp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:id="@+id/contactInfoDiv3"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
-
-                <EditText
-                    android:id="@+id/addOrEditContactDescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    android:hint="Contact Description" />
-
-
-            </LinearLayout>
+                android:ems="10"
+                android:hint="Contact Phone Number"
+                android:inputType="phone"
+                android:maxLength="16"
+                android:minHeight="48dp"
+                android:text="" />
 
         </LinearLayout>
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/rightMargin"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.96" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/topMargin"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.01" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/leftMargin"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.05" />
+            android:padding="16dp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/contactInfoJudulEmail"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Email"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/contactInfoDiv2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <EditText
+                android:id="@+id/addOrEditEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Contact Email"
+                android:inputType="textEmailAddress"
+                android:maxLength="40"
+                android:minHeight="48dp"
+                android:text="" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/contactInfoJudulDesc"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Description"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/contactInfoDiv3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <EditText
+                android:id="@+id/addOrEditDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Contact Description"
+                android:inputType="textMultiLine"
+                android:maxLength="100"
+                android:minHeight="48dp"
+                android:text="" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>
