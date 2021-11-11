@@ -6,6 +6,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.room.Room
+import com.example.tugaspapbkelompok3.database.Contact
+import com.example.tugaspapbkelompok3.database.DB
 
 
 /**
@@ -25,13 +27,12 @@ class ContactInfo : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val db = Room.databaseBuilder(requireActivity()
-            .applicationContext, DB::class.java, "contacts").allowMainThreadQueries().build()
+        val db = DB.getDB(requireActivity().applicationContext)
         val contactDAO = db.ContactDAO()
 
         val key = arguments?.getInt("contactID")
 
-        val displayedContact: Contact = contactDAO.getContactById(key!!)
+        val displayedContact: Contact = contactDAO.getContactById(key!!) as Contact
 
         view.findViewById<TextView>(R.id.contactInfoIsiNama).text = displayedContact.name
         view.findViewById<TextView>(R.id.contactInfoIsiNo).text = displayedContact?.number

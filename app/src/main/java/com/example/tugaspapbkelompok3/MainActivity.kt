@@ -17,6 +17,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import androidx.room.Room
+import com.example.tugaspapbkelompok3.database.Contact
+import com.example.tugaspapbkelompok3.database.DB
 import com.example.tugaspapbkelompok3.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -29,11 +31,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-        //contactDAO.newContacts(Contact("name","123","email@email.com","descTest"))
-
-        //val contactArrayList = contactDAO.getAllContacts()
 
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
@@ -74,7 +71,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     public fun updateList() {
-        val db = Room.databaseBuilder(applicationContext, DB::class.java, "contacts").allowMainThreadQueries().build()
+        val db = DB.getDB(applicationContext)
         val contactDAO = db.ContactDAO()
         lvAdapter = Adapter(this, contactDAO.getAllContacts())
         binding.contactListView.adapter = lvAdapter

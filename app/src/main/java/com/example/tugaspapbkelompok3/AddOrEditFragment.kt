@@ -13,6 +13,8 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.room.Room
+import com.example.tugaspapbkelompok3.database.Contact
+import com.example.tugaspapbkelompok3.database.DB
 import com.example.tugaspapbkelompok3.databinding.ActivityMainBinding
 import com.example.tugaspapbkelompok3.databinding.FragmentAddOrEditBinding
 
@@ -38,15 +40,13 @@ class AddOrEditFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val db = Room.databaseBuilder(
-            requireActivity().applicationContext, DB::class.java, "contacts"
-        ).allowMainThreadQueries().build()
+        val db = DB.getDB(requireActivity().applicationContext)
         val contactDAO = db.ContactDAO()
 
         val key = arguments?.getInt("contactID")
 
         if (key != null) {
-            val displayedContact: Contact = contactDAO.getContactById(key!!)
+            val displayedContact: Contact = contactDAO.getContactById(key!!) as Contact
             getView()?.findViewById<EditText>(R.id.addOrEditContactName)
                 ?.setText(displayedContact?.name)
             getView()?.findViewById<EditText>(R.id.addOrEditPhone)
@@ -89,9 +89,7 @@ class AddOrEditFragment : Fragment() {
             getView()?.findViewById<EditText>(R.id.addOrEditEmail)?.text.toString(),
             getView()?.findViewById<EditText>(R.id.addOrEditDescription)?.text.toString()
         )
-        val db = Room.databaseBuilder(
-            requireActivity().applicationContext, DB::class.java, "contacts"
-        ).allowMainThreadQueries().build()
+        val db = DB.getDB(requireActivity().applicationContext)
         val contactDAO = db.ContactDAO()
 
         if (contact.name == "")
