@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import com.example.tugaspapbkelompok3.database.Contact
 
-class Adapter(private val context : Activity, private val arrayList: Array<Contact>): ArrayAdapter<Contact>
+class Adapter(private val context : Activity, private val arrayList: List<Contact>): ArrayAdapter<Contact>
     (context, R.layout.list_item,arrayList) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {

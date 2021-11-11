@@ -1,5 +1,4 @@
-package com.example.tugaspapbkelompok3
-
+package com.example.tugaspapbkelompok3.database
 import androidx.room.*
 
 @Entity(tableName = "contacts")
@@ -15,18 +14,14 @@ data class Contact(
 @Dao
 interface ContactDAO{
     @Query("SELECT * FROM contacts")
-    fun getAllContacts(): Array<Contact>
+    fun getAllContacts(): List<Contact>
     @Query("SELECT * FROM contacts WHERE contactId = :input")
     fun getContactById(input: Int): Contact
     @Insert
-    fun newContacts(vararg contact: Contact)
+    fun newContacts(contact: Contact)
     @Update
-    fun updateContact(vararg contact: Contact)
+    fun updateContact(contact: Contact)
     @Delete
-    fun deleteContact(vararg contact: Contact)
+    fun deleteContact(contact: Contact)
 }
 
-@Database(entities = [Contact::class], version = 1)
-abstract class DB : RoomDatabase() {
-    abstract fun ContactDAO(): ContactDAO
-}
