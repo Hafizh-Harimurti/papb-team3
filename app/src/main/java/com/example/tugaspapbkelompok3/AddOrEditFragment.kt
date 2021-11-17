@@ -75,7 +75,6 @@ class AddOrEditFragment : Fragment() {
                     super.onOptionsItemSelected(item)
                 else
                     arguments?.putInt("contactID", contact.contactId)
-                    mainActivity.updateList()
                     navController.popBackStack()
             }
         }
