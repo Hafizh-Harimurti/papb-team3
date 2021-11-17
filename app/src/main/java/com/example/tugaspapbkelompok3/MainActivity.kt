@@ -24,14 +24,11 @@ import com.example.tugaspapbkelompok3.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityMainBinding
-    lateinit var contactArrayList : Array<Contact>
-    lateinit var lvAdapter : ArrayAdapter<Contact>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -51,35 +48,10 @@ class MainActivity : AppCompatActivity() {
         return super.onPrepareOptionsMenu(menu)
     }
 
-    override fun onResume() {
-        updateList()
-        super.onResume()
-
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val navController = findNavController(R.id.navHostFragment)
-        when (item.itemId) {
-            R.id.menu_add -> navController.navigate(R.id.action_blankFragment_to_addOrEditFragment)
-        }
-        return super.onOptionsItemSelected(item)
-    }
     public fun hideKeyboard(){
         val view = currentFocus
         val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputManager.hideSoftInputFromWindow(view?.windowToken, 0)
     }
 
-    public fun updateList() {
-        val db = DB.getDB(applicationContext)
-        val contactDAO = db.ContactDAO()
-        lvAdapter = Adapter(this, contactDAO.getAllContacts())
-        binding.contactListView.adapter = lvAdapter
-        binding.contactListView.setOnItemClickListener { adapterView, view, i, j->
-            val clickedContactID = i+1 //TODO: temp
-            val bundle = bundleOf("contactID" to clickedContactID)
-            findNavController(R.id.navHostFragment).navigate(R.id.action_blankFragment_to_contactInfo,bundle)
-        }
-        super.onResume()
-    }
 }

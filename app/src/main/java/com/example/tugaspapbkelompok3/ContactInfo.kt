@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.room.Room
 import com.example.tugaspapbkelompok3.database.Contact
@@ -42,18 +43,16 @@ class ContactInfo : Fragment() {
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {
-        menu.removeItem(R.id.menu_add)
         menu.removeItem(R.id.menu_save_changes)
-        menu.findItem(R.id.menu_edit).setVisible(true)
+        menu.removeItem(R.id.menu_edit)
+        menu.findItem(R.id.menu_add).setVisible(true)
         super.onPrepareOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val navController = findNavController()
-        when (item.itemId){
-            R.id.menu_edit -> {
-                navController.navigate(R.id.action_contactInfo_to_addOrEditFragment, arguments)
-            }
+        when (item.itemId) {
+            R.id.menu_add -> navController.navigate(R.id.action_blankFragment_to_addOrEditFragment)
         }
         return super.onOptionsItemSelected(item)
     }
