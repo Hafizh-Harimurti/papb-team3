@@ -12,6 +12,9 @@ import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.room.Room
+import com.example.tugaspapbkelompok3.database.Contact
+import com.example.tugaspapbkelompok3.database.DB
 import com.example.tugaspapbkelompok3.databinding.ActivityMainBinding
 import com.example.tugaspapbkelompok3.databinding.FragmentAddOrEditBinding
 
@@ -21,14 +24,10 @@ import com.example.tugaspapbkelompok3.databinding.FragmentAddOrEditBinding
  * create an instance of this fragment.
  */
 class AddOrEditFragment : Fragment() {
-    private lateinit var mainActivity : MainActivity
-    private var position : Int = -1
+    private lateinit var mainActivity: MainActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if(arguments!=null){
-            position = arguments?.getInt("position")!!
-        }
         mainActivity = activity as MainActivity
     }
 
@@ -41,10 +40,21 @@ class AddOrEditFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        getView()?.findViewById<EditText>(R.id.addOrEditContactName)?.setText(arguments?.getString("name"))
-        getView()?.findViewById<EditText>(R.id.addOrEditPhone)?.setText(arguments?.getString("number"))
-        getView()?.findViewById<EditText>(R.id.addOrEditEmail)?.setText(arguments?.getString("email"))
-        getView()?.findViewById<EditText>(R.id.addOrEditDescription)?.setText(arguments?.getString("desc"))
+        val db = DB.getDB(requireActivity().applicationContext)
+        val contactDAO = db.ContactDAO()
+
+        val key = arguments?.getInt("contactID")
+
+        if (key != null) {
+            val displayedContact: Contact = contactDAO.getContactById(key!!) as Contact
+            getView()?.findViewById<EditText>(R.id.addOrEditContactName)
+                ?.setText(displayedContact?.name)
+            getView()?.findViewById<EditText>(R.id.addOrEditPhone)
+                ?.setText(displayedContact?.number)
+            getView()?.findViewById<EditText>(R.id.addOrEditEmail)?.setText(displayedContact?.email)
+            getView()?.findViewById<EditText>(R.id.addOrEditDescription)
+                ?.setText(displayedContact?.description)
+        }
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -57,50 +67,47 @@ class AddOrEditFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val navController = findNavController()
-        when (item.itemId){
+        when (item.itemId) {
             R.id.menu_save_changes -> {
-                var newPosition: Int
-                var (result, contact) = modifyMainActivityListView(position, mainActivity)
-                if(result == "Invalid"){
-                    return super.onOptionsItemSelected(item)
-                }
-                if(position == -1){
-                    newPosition = mainActivity.contactArrayList.size
-                } else {
-                    newPosition = position
-                }
-                var bundle = bundleOf("position" to newPosition, "name" to contact.name, "email" to contact.email, "number" to contact.number, "desc" to contact.description)
-                if(position != -1){
-                    navController.navigate(R.id.action_addOrEditFragment_to_contactInfo, bundle)
-                } else {
-                    navController.navigate(R.id.action_addOrEditFragment_to_blankFragment)
-                }
+                val (result, contact) = modifyContact()
+                Toast.makeText(activity, result, Toast.LENGTH_SHORT).show()
+                if (result == "invalid input")
+                    super.onOptionsItemSelected(item)
+                else
+                    arguments?.putInt("contactID", contact.contactId)
+                    mainActivity.updateList()
+                    navController.popBackStack()
             }
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun modifyMainActivityListView(position: Int, mainActivity: MainActivity) : Pair<String, Contact>{
+    private fun modifyContact(): Pair<String, Contact> {
         var contact = Contact(
             getView()?.findViewById<EditText>(R.id.addOrEditContactName)?.text.toString(),
             getView()?.findViewById<EditText>(R.id.addOrEditPhone)?.text.toString(),
             getView()?.findViewById<EditText>(R.id.addOrEditEmail)?.text.toString(),
-            getView()?.findViewById<EditText>(R.id.addOrEditDescription)?.text.toString())
-        if(contact.name == ""){
-            Toast.makeText(activity, "Cannot leave name field empty!", Toast.LENGTH_SHORT).show()
-            return Pair("Invalid", contact)
+            getView()?.findViewById<EditText>(R.id.addOrEditDescription)?.text.toString()
+        )
+        val db = DB.getDB(requireActivity().applicationContext)
+        val contactDAO = db.ContactDAO()
+
+        if (contact.name == "")
+            return Pair("invalid input",contact)
+        else if (arguments?.getInt("contactID") != null){
+            contact.contactId = requireArguments().getInt("contactID")
+            contactDAO.updateContact(contact)
+            return Pair("contact updated", contact)
         }
-        if(position == -1){
-            mainActivity.contactArrayList.add(contact)
-        } else {
-            mainActivity.contactArrayList.set(position, contact)
+        else{
+            contactDAO.newContacts(contact)
+            return Pair("contact added", contact)
         }
-        mainActivity.lvAdapter.notifyDataSetChanged()
-        return Pair("Success", contact)
     }
 
     override fun onDestroyView() {
         mainActivity.hideKeyboard()
         super.onDestroyView()
     }
+
 }

@@ -5,6 +5,9 @@ import android.view.*
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.room.Room
+import com.example.tugaspapbkelompok3.database.Contact
+import com.example.tugaspapbkelompok3.database.DB
 
 
 /**
@@ -13,8 +16,6 @@ import androidx.navigation.fragment.findNavController
  * create an instance of this fragment.
  */
 class ContactInfo : Fragment() {
-    private var bundle : Bundle? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -26,11 +27,17 @@ class ContactInfo : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        bundle = arguments
-        view.findViewById<TextView>(R.id.contactInfoIsiNama).text = arguments?.getString("name")
-        view.findViewById<TextView>(R.id.contactInfoIsiNo).text = arguments?.getString("number")
-        view.findViewById<TextView>(R.id.contactInfoIsiEmail).text = arguments?.getString("email")
-        view.findViewById<TextView>(R.id.contactInfoIsiDesc).text = arguments?.getString("desc")
+        val db = DB.getDB(requireActivity().applicationContext)
+        val contactDAO = db.ContactDAO()
+
+        val key = arguments?.getInt("contactID")
+
+        val displayedContact: Contact = contactDAO.getContactById(key!!) as Contact
+
+        view.findViewById<TextView>(R.id.contactInfoIsiNama).text = displayedContact.name
+        view.findViewById<TextView>(R.id.contactInfoIsiNo).text = displayedContact?.number
+        view.findViewById<TextView>(R.id.contactInfoIsiEmail).text = displayedContact?.email
+        view.findViewById<TextView>(R.id.contactInfoIsiDesc).text = displayedContact?.description
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -44,7 +51,9 @@ class ContactInfo : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val navController = findNavController()
         when (item.itemId){
-            R.id.menu_edit -> navController.navigate(R.id.action_contactInfo_to_addOrEditFragment, bundle)
+            R.id.menu_edit -> {
+                navController.navigate(R.id.action_contactInfo_to_addOrEditFragment, arguments)
+            }
         }
         return super.onOptionsItemSelected(item)
     }

@@ -10,143 +10,148 @@
     android:clickable="true"
     tools:context=".AddOrEditFragment">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView
-                android:id="@+id/contactInfoJudulNama"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="Nama"
-                android:textSize="34sp"
-                android:textStyle="bold" />
-
-            <View
-                android:id="@+id/contactInfoDiv0"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
-
-            <EditText
-                android:id="@+id/addOrEditContactName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Contact Name"
-                android:inputType="textPersonName"
-                android:maxLength="40"
-                android:minHeight="48dp"
-                android:text="" />
-
-        </LinearLayout>
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/contactInfoJudulNo"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="No"
-                android:textSize="34sp"
-                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-            <View
-                android:id="@+id/contactInfoDiv1"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
+                <TextView
+                    android:id="@+id/contactInfoJudulNama"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Nama"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/addOrEditPhone"
+                <View
+                    android:id="@+id/contactInfoDiv0"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider" />
+
+                <EditText
+                    android:id="@+id/addOrEditContactName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Contact Name"
+                    android:inputType="textPersonName"
+                    android:maxLength="40"
+                    android:minHeight="48dp"
+                    android:text="" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Contact Phone Number"
-                android:inputType="phone"
-                android:maxLength="16"
-                android:minHeight="48dp"
-                android:text="" />
+                android:orientation="vertical"
+                android:padding="16dp">
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/contactInfoJudulNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="No"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+                <View
+                    android:id="@+id/contactInfoDiv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider" />
 
-            <TextView
-                android:id="@+id/contactInfoJudulEmail"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="Email"
-                android:textSize="34sp"
-                android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/addOrEditPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Contact Phone Number"
+                    android:inputType="phone"
+                    android:maxLength="16"
+                    android:minHeight="48dp"
+                    android:text="" />
 
-            <View
-                android:id="@+id/contactInfoDiv2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
+            </LinearLayout>
 
-            <EditText
-                android:id="@+id/addOrEditEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Contact Email"
-                android:inputType="textEmailAddress"
-                android:maxLength="40"
-                android:minHeight="48dp"
-                android:text="" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView
-                android:id="@+id/contactInfoJudulDesc"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="Description"
-                android:textSize="34sp"
-                android:textStyle="bold" />
-
-            <View
-                android:id="@+id/contactInfoDiv3"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
-
-            <EditText
-                android:id="@+id/addOrEditDescription"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Contact Description"
-                android:inputType="textMultiLine"
-                android:maxLength="100"
-                android:minHeight="48dp"
-                android:text="" />
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/contactInfoJudulEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Email"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/contactInfoDiv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider" />
+
+                <EditText
+                    android:id="@+id/addOrEditEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Contact Email"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="40"
+                    android:minHeight="48dp"
+                    android:text="" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/contactInfoJudulDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Description"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/contactInfoDiv3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider" />
+
+                <EditText
+                    android:id="@+id/addOrEditDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Contact Description"
+                    android:inputType="textMultiLine"
+                    android:maxLength="100"
+                    android:minHeight="48dp"
+                    android:text="" />
+
+            </LinearLayout>
 
         </LinearLayout>
-
-    </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>
