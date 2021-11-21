@@ -1,21 +1,21 @@
-package com.example.tugaspapbkelompok3
+package com.example.tugaspapbkelompok3.fragment
 
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.room.Room
+import com.example.tugaspapbkelompok3.R
 import com.example.tugaspapbkelompok3.database.Contact
 import com.example.tugaspapbkelompok3.database.DB
 
 
 /**
  * A simple [Fragment] subclass.
- * Use the [ContactInfo.newInstance] factory method to
+ * Use the [ContactInfoFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ContactInfo : Fragment() {
+class ContactInfoFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }

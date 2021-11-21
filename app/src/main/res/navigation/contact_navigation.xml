@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/addOrEditFragment"
-        android:name="com.example.tugaspapbkelompok3.AddOrEditFragment"
+        android:name="com.example.tugaspapbkelompok3.fragment.AddOrEditFragment"
         android:label="fragment_add_or_edit"
         tools:layout="@layout/fragment_add_or_edit" />
     <fragment
         android:id="@+id/contactInfo"
-        android:name="com.example.tugaspapbkelompok3.ContactInfo"
+        android:name="com.example.tugaspapbkelompok3.fragment.ContactInfoFragment"
         android:label="fragment_contact_info"
         tools:layout="@layout/fragment_contact_info" >
         <action

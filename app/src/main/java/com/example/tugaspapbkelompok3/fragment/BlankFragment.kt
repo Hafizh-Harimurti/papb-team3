@@ -1,9 +1,9 @@
-package com.example.tugaspapbkelompok3
+package com.example.tugaspapbkelompok3.fragment
 
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import com.example.tugaspapbkelompok3.R
 
 /**
  * A simple [Fragment] subclass.

@@ -1,22 +1,15 @@
-package com.example.tugaspapbkelompok3
+package com.example.tugaspapbkelompok3.fragment
 
-import android.content.Context
 import android.os.Bundle
 import android.view.*
-import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import android.widget.FrameLayout
-import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.room.Room
+import com.example.tugaspapbkelompok3.MainActivity
+import com.example.tugaspapbkelompok3.R
 import com.example.tugaspapbkelompok3.database.Contact
 import com.example.tugaspapbkelompok3.database.DB
-import com.example.tugaspapbkelompok3.databinding.ActivityMainBinding
-import com.example.tugaspapbkelompok3.databinding.FragmentAddOrEditBinding
 
 /**
  * A simple [Fragment] subclass.
