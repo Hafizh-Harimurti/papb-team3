@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/addOrEditFragment"
-        android:name="com.example.tugaspapbkelompok3.AddOrEditFragment"
+        android:name="com.example.tugaspapbkelompok3.view.AddOrEditFragment"
         android:label="fragment_add_or_edit"
         tools:layout="@layout/fragment_add_or_edit" />
     <fragment

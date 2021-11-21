@@ -8,7 +8,7 @@
     android:background="@color/white"
     android:focusable="true"
     android:clickable="true"
-    tools:context=".AddOrEditFragment">
+    tools:context=".view.AddOrEditFragment">
 
     <ScrollView
         android:layout_width="match_parent"

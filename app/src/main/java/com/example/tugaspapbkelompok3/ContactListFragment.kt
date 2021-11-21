@@ -34,7 +34,7 @@ class BlankFragment : Fragment() {
         super.onResume()
         updateList()
     }
-    public fun updateList() {
+    fun updateList() {
         val db = DB.getDB(requireActivity().applicationContext)
         val contactDAO = db.ContactDAO()
         var lvAdapter = Adapter(requireActivity(), contactDAO.getAllContacts())

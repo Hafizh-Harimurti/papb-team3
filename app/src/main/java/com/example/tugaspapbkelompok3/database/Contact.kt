@@ -18,7 +18,7 @@ interface ContactDAO{
     @Query("SELECT * FROM contacts WHERE contactId = :input")
     fun getContactById(input: Int): Contact
     @Insert
-    fun newContacts(contact: Contact)
+    fun newContacts(contact: Contact): Long
     @Update
     fun updateContact(contact: Contact)
     @Delete
