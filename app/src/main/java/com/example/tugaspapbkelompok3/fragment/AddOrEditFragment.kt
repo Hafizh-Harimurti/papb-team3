@@ -1,7 +1,8 @@
-package com.example.tugaspapbkelompok3.view
+package com.example.tugaspapbkelompok3.fragment
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.EditText
 import android.widget.Toast

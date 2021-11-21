@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:focusable="true"
     android:clickable="true"
-    tools:context=".ContactInfo">
+    tools:context=".fragment.ContactInfoFragment">
 
     <ScrollView
         android:layout_width="match_parent"

@@ -5,21 +5,21 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/contactListFragment">
 
-    <fragment
-        android:id="@+id/contactListFragment"
-        android:name="com.example.tugaspapbkelompok3.BlankFragment"
-        android:label="Tugas PAPB Kelompok 3"
-        tools:layout="@layout/fragment_contact_list">
-        <action
-            android:id="@+id/action_blankFragment_to_contactInfo"
-            app:destination="@id/contactInfo" />
-        <action
-            android:id="@+id/action_blankFragment_to_addOrEditFragment"
-            app:destination="@id/addOrEditFragment" />
-    </fragment>
+<!--    <fragment-->
+<!--        android:id="@+id/blankFragment"-->
+<!--        android:name="com.example.tugaspapbkelompok3.fragment.BlankFragment"-->
+<!--        android:label="Tugas PAPB Kelompok 3"-->
+<!--        tools:layout="@layout/fragment_blank">-->
+<!--        <action-->
+<!--            android:id="@+id/action_blankFragment_to_contactInfo"-->
+<!--            app:destination="@id/contactInfo" />-->
+<!--        <action-->
+<!--            android:id="@+id/action_blankFragment_to_addOrEditFragment"-->
+<!--            app:destination="@id/addOrEditFragment" />-->
+<!--    </fragment>-->
     <fragment
         android:id="@+id/addOrEditFragment"
-        android:name="com.example.tugaspapbkelompok3.view.AddOrEditFragment"
+        android:name="com.example.tugaspapbkelompok3.fragment.AddOrEditFragment"
         android:label="@string/AddOrEditFragmentLabel"
         tools:layout="@layout/fragment_add_or_edit">
         <action
@@ -32,14 +32,29 @@
             app:destination="@id/contactListFragment"
             app:popUpTo="@id/contactListFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_addOrEditFragment_to_contactListFragment"
+            app:destination="@id/contactListFragment" />
     </fragment>
     <fragment
         android:id="@+id/contactInfo"
-        android:name="com.example.tugaspapbkelompok3.ContactInfo"
+        android:name="com.example.tugaspapbkelompok3.fragment.ContactInfoFragment"
         android:label="Contact Details"
         tools:layout="@layout/fragment_contact_info">
         <action
             android:id="@+id/action_contactInfo_to_addOrEditFragment"
+            app:destination="@id/addOrEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactListFragment"
+        android:name="com.example.tugaspapbkelompok3.fragment.ContactListFragment"
+        android:label="Contact List"
+        tools:layout="@layout/fragment_contact_list" >
+        <action
+            android:id="@+id/action_contactListFragment_to_contactInfo2"
+            app:destination="@id/contactInfo" />
+        <action
+            android:id="@+id/action_contactListFragment_to_addOrEditFragment2"
             app:destination="@id/addOrEditFragment" />
     </fragment>
 </navigation>
