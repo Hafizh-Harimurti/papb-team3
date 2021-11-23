@@ -1,14 +1,18 @@
 package com.example.tugaspapbkelompok3.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tugaspapbkelompok3.R
 import com.example.tugaspapbkelompok3.database.Contact
 import com.example.tugaspapbkelompok3.database.DB
+import com.example.tugaspapbkelompok3.mvp_interface.IContactInfo.*
+import com.example.tugaspapbkelompok3.presenter.ContactInfoPresenter
 
 
 /**
@@ -16,9 +20,13 @@ import com.example.tugaspapbkelompok3.database.DB
  * Use the [ContactInfoFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ContactInfoFragment : Fragment() {
+class ContactInfoFragment : Fragment(), IContactInfoView {
+
+    private lateinit var presenter: IContactInfoPresenter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        presenter = ContactInfoPresenter(this)
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
@@ -28,18 +36,9 @@ class ContactInfoFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val db = DB.getDB(requireActivity().applicationContext)
-        val contactDAO = db.ContactDAO()
-
-        val key = arguments?.getInt("contactID")
-
-        val displayedContact: Contact = contactDAO.getContactById(key!!) as Contact
-
-        view.findViewById<TextView>(R.id.contactInfoIsiNama).text = displayedContact.name
-        view.findViewById<TextView>(R.id.contactInfoIsiNo).text = displayedContact?.number
-        view.findViewById<TextView>(R.id.contactInfoIsiEmail).text = displayedContact?.email
-        view.findViewById<TextView>(R.id.contactInfoIsiDesc).text = displayedContact?.description
         super.onViewCreated(view, savedInstanceState)
+        val key = arguments?.getInt("contactID")
+        presenter.viewCreated()
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {
@@ -58,4 +57,20 @@ class ContactInfoFragment : Fragment() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+    override fun fillTexts() {
+        requireView().findViewById<TextView>(R.id.contactInfoIsiNama).text = presenter.getName()
+        requireView().findViewById<TextView>(R.id.contactInfoIsiNo).text = presenter.getNumber()
+        requireView().findViewById<TextView>(R.id.contactInfoIsiEmail).text = presenter.getEmail()
+        requireView().findViewById<TextView>(R.id.contactInfoIsiDesc).text = presenter.getDescription()
+    }
+
+    override fun getFragmentContext(): Context? {
+        return context
+    }
+
+    override fun getArgs(): Bundle? {
+        return arguments
+    }
+
 }

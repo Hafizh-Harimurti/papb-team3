@@ -55,11 +55,6 @@ class MainActivity : AppCompatActivity() {
         return super.onPrepareOptionsMenu(menu)
     }
 
-    override fun onResume() {
-        updateList()
-        super.onResume()
-
-    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val navController = findNavController(R.id.navHostFragment)
@@ -77,18 +72,4 @@ class MainActivity : AppCompatActivity() {
         val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputManager.hideSoftInputFromWindow(view?.windowToken, 0)
     }
-
-    public fun updateList() {
-        val db = DB.getDB(applicationContext)
-        val contactDAO = db.ContactDAO()
-        lvAdapter = ContactAdapter(this, contactDAO.getAllContacts())
-////        binding.contactListView.adapter = lvAdapter
-//        binding.contactListView.setOnItemClickListener { adapterView, view, i, j->
-//            val clickedContactID = i+1 //TODO: temp
-//            val bundle = bundleOf("contactID" to clickedContactID)
-//            findNavController(R.id.navHostFragment).navigate(R.id.action_blankFragment_to_contactInfo,bundle)
-//        }
-        super.onResume()
-    }
-
 }

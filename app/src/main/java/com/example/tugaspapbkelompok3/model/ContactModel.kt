@@ -6,17 +6,17 @@ import com.example.tugaspapbkelompok3.database.Contact
 import com.example.tugaspapbkelompok3.database.ContactDAO
 import com.example.tugaspapbkelompok3.database.DB
 
-class AddOrEditModel:IAddOrEditModel {
+class ContactModel {
     private var contactDAO: ContactDAO? = null
 
     private var contact: Contact? = null
 
-    override fun setDB(context: Context) {
+     fun setDB(context: Context) {
         val db = DB.getDB(context)
         contactDAO = db.ContactDAO()
     }
 
-    override fun getContactById(id: Int?) {
+     fun getContactById(id: Int?) {
         contact = if(id == null){
             Contact("","","","", -1)
         } else{
@@ -24,15 +24,15 @@ class AddOrEditModel:IAddOrEditModel {
         }
     }
 
-    override fun getName(): String = contact!!.name
+     fun getName(): String = contact!!.name
 
-    override fun getNumber(): String = contact!!.number
+     fun getNumber(): String = contact!!.number
 
-    override fun getEmail(): String = contact!!.email
+     fun getEmail(): String = contact!!.email
 
-    override fun getDescription(): String = contact!!.description
+     fun getDescription(): String = contact!!.description
 
-    override fun saveContact(name: String, number: String, email: String, description: String): Pair<String, Int> {
+     fun saveContact(name: String, number: String, email: String, description: String): Pair<String, Int> {
         contact!!.name = name
         contact!!.number = number
         contact!!.email = email

@@ -1,11 +1,11 @@
 package com.example.tugaspapbkelompok3.presenter
 
 import com.example.tugaspapbkelompok3.mvp_interface.IAddOrEdit.*
-import com.example.tugaspapbkelompok3.model.AddOrEditModel
+import com.example.tugaspapbkelompok3.model.ContactModel
 
 class AddOrEditPresenter(_view: IAddOrEditView):IAddOrEditPresenter{
     private var view: IAddOrEditView = _view
-    private var model: IAddOrEditModel = AddOrEditModel()
+    private var model: ContactModel = ContactModel()
     private var isEditing: Boolean = false
 
     init {
