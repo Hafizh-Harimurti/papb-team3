@@ -6,12 +6,24 @@ import com.example.tugaspapbkelompok3.model.AddOrEditModel
 class AddOrEditPresenter(_view: IAddOrEditView):IAddOrEditPresenter{
     private var view: IAddOrEditView = _view
     private var model: IAddOrEditModel = AddOrEditModel()
+    private var isEditing: Boolean = false
 
     init {
         model.setDB(view.getFragmentContext()!!)
     }
 
+    override fun getIsEditing(): Boolean {
+        return isEditing
+    }
+
+    override fun setIsEditing(isEditing: Boolean) {
+        this.isEditing = isEditing
+    }
+
     override fun getContactById(id: Int?) {
+        if(id != null){
+            isEditing = true
+        }
         model.getContactById(id)
         view.fillEditTexts()
     }
@@ -27,7 +39,8 @@ class AddOrEditPresenter(_view: IAddOrEditView):IAddOrEditPresenter{
     override fun saveContact(name: String, number: String, email: String, description: String) {
         if(name == ""){
             view.saveContactResult(Pair("Name field must be filled", -1))
+        } else {
+            view.saveContactResult(model.saveContact(name, number, email, description))
         }
-        view.saveContactResult(model.saveContact(name, number, email, description))
     }
 }

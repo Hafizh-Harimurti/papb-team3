@@ -16,6 +16,8 @@ interface IAddOrEdit {
     }
 
     interface IAddOrEditPresenter {
+        fun getIsEditing(): Boolean
+        fun setIsEditing(isEditing: Boolean)
         fun getContactById(id: Int?)
         fun getName(): String
         fun getNumber(): String

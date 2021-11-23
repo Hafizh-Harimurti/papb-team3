@@ -1,6 +1,12 @@
 package com.example.tugaspapbkelompok3
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.app.TaskStackBuilder
 import android.content.Context
+import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -9,13 +15,16 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import androidx.appcompat.widget.Toolbar
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.tugaspapbkelompok3.adapter.ContactAdapter
 import com.example.tugaspapbkelompok3.database.Contact
 import com.example.tugaspapbkelompok3.database.DB
 import com.example.tugaspapbkelompok3.databinding.ActivityMainBinding
+import com.example.tugaspapbkelompok3.fragment.AddOrEditFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -56,6 +65,10 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.navHostFragment)
         when (item.itemId) {
             R.id.menu_add -> navController.navigate(R.id.action_contactListFragment_to_addOrEditFragment2)
+            R.id.home -> {
+                onBackPressedDispatcher.onBackPressed()
+                return true
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -77,4 +90,5 @@ class MainActivity : AppCompatActivity() {
 //        }
         super.onResume()
     }
+
 }
