@@ -6,4 +6,5 @@
     <string name="AddContactFragmentTitle">Add Contact</string>
     <string name="BackButtonText"><b>Back</b></string>
     <string name="AddOrEditFragmentLabel">Input New Data</string>
+    <string name="unfinished_edit_channel_id">UnfinishedEdit</string>
 </resources>

@@ -1,25 +1,30 @@
 package com.example.tugaspapbkelompok3
 
-import android.app.Activity
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.app.TaskStackBuilder
 import android.content.Context
+import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
-import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
-import androidx.room.Room
+import com.example.tugaspapbkelompok3.adapter.ContactAdapter
 import com.example.tugaspapbkelompok3.database.Contact
 import com.example.tugaspapbkelompok3.database.DB
 import com.example.tugaspapbkelompok3.databinding.ActivityMainBinding
+import com.example.tugaspapbkelompok3.fragment.AddOrEditFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,7 +36,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -51,16 +55,15 @@ class MainActivity : AppCompatActivity() {
         return super.onPrepareOptionsMenu(menu)
     }
 
-    override fun onResume() {
-        updateList()
-        super.onResume()
-
-    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val navController = findNavController(R.id.navHostFragment)
         when (item.itemId) {
-            R.id.menu_add -> navController.navigate(R.id.action_blankFragment_to_addOrEditFragment)
+            R.id.menu_add -> navController.navigate(R.id.action_contactListFragment_to_addOrEditFragment2)
+            R.id.home -> {
+                onBackPressedDispatcher.onBackPressed()
+                return true
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -68,18 +71,5 @@ class MainActivity : AppCompatActivity() {
         val view = currentFocus
         val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputManager.hideSoftInputFromWindow(view?.windowToken, 0)
-    }
-
-    public fun updateList() {
-        val db = DB.getDB(applicationContext)
-        val contactDAO = db.ContactDAO()
-        lvAdapter = Adapter(this, contactDAO.getAllContacts())
-        binding.contactListView.adapter = lvAdapter
-        binding.contactListView.setOnItemClickListener { adapterView, view, i, j->
-            val clickedContactID = i+1 //TODO: temp
-            val bundle = bundleOf("contactID" to clickedContactID)
-            findNavController(R.id.navHostFragment).navigate(R.id.action_blankFragment_to_contactInfo,bundle)
-        }
-        super.onResume()
     }
 }
