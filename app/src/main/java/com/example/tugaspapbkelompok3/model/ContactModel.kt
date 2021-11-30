@@ -50,4 +50,8 @@ class ContactModel {
         }
     }
 
+    fun deleteContact(id: Int?) {
+        contactDAO!!.deleteContact(id!!)
+    }
+
 }

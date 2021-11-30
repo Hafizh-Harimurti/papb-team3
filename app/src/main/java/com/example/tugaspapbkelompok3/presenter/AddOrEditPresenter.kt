@@ -1,5 +1,6 @@
 package com.example.tugaspapbkelompok3.presenter
 
+import com.example.tugaspapbkelompok3.database.Contact
 import com.example.tugaspapbkelompok3.mvp_interface.IAddOrEdit.*
 import com.example.tugaspapbkelompok3.model.ContactModel
 
@@ -42,5 +43,9 @@ class AddOrEditPresenter(_view: IAddOrEditView):IAddOrEditPresenter{
         } else {
             view.saveContactResult(model.saveContact(name, number, email, description))
         }
+    }
+
+    override fun deleteContact(id: Int?) {
+        model.deleteContact(id)
     }
 }
