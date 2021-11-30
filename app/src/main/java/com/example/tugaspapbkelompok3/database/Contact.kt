@@ -21,7 +21,7 @@ interface ContactDAO{
     fun newContacts(contact: Contact): Long
     @Update
     fun updateContact(contact: Contact)
-    @Delete
-    fun deleteContact(contact: Contact)
+    @Query("DELETE FROM contacts WHERE contactId = :contactId")
+    fun deleteContact(contactId: Int)
 }
 

@@ -13,6 +13,7 @@ interface IAddOrEdit {
         fun getEmail(): String
         fun getDescription(): String
         fun saveContact(name: String, number: String, email: String, description: String): Pair<String, Int>
+        fun deleteContact(id: Int?)
     }
 
     interface IAddOrEditPresenter {
@@ -24,6 +25,7 @@ interface IAddOrEdit {
         fun getEmail(): String
         fun getDescription(): String
         fun saveContact(name: String, number: String, email: String, description: String)
+        fun deleteContact(id: Int?)
     }
 
     interface IAddOrEditView{
