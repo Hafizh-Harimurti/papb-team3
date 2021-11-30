@@ -6,7 +6,10 @@
 * Hafizh Aradhana Harimurti (19/444053/TK/49249)
 * Wahyu Cahyo Wicaksono (19/444077/TK/49273)
 
+## Deskripsi:
+Aplikasi ini merupakan aplikasi kontak dengan kemampuan untuk menambah, mengedit, dan menghapus kontak sesuai keinginan.
+
 ## Screenshot tampilan-tampilan dalam aplikasi:
-![PAPB-Pre-UTS-HomeScreen](https://user-images.githubusercontent.com/64583473/136967425-ce2db983-b3f6-45ad-a20f-586670815fb4.png)
-![PAPB-Pre-UTS-ContactDetails](https://user-images.githubusercontent.com/64583473/136967413-a3def38a-b135-4f13-b89f-a4c0f1c575c2.png)
-![PAPB-Pre-UTS-AddOrEdit](https://user-images.githubusercontent.com/64583473/136967430-82605f59-78a5-496d-a425-eebce9073499.png)
+![image](https://user-images.githubusercontent.com/64583473/144074840-e04d7fa5-a984-448b-8d53-2ec82bf65f33.png)
+![image](https://user-images.githubusercontent.com/64583473/144075011-07bfa37b-3fd8-488a-b005-80765d5e55db.png)
+![image](https://user-images.githubusercontent.com/64583473/144075327-2613fc61-80a4-47c4-96b6-fb7ee6a9b644.png)
