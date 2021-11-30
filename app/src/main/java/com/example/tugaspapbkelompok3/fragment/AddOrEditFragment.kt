@@ -83,12 +83,8 @@ class AddOrEditFragment : Fragment(), IAddOrEditView {
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-    }
-
     override fun onPause(){
-        if(arguments?.getInt("contactID") != null && !requireActivity().lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)){
+        if(!requireActivity().lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)){
             createChannel(
                 getString(R.string.unfinished_edit_channel_id),
                 "Edit Page"
@@ -139,7 +135,7 @@ class AddOrEditFragment : Fragment(), IAddOrEditView {
             val notificationChannel = NotificationChannel(
                 channelID,
                 channelName,
-                NotificationManager.IMPORTANCE_LOW
+                NotificationManager.IMPORTANCE_DEFAULT
             )
 
             notificationChannel.description = "Continue editing contact"

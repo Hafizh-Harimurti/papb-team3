@@ -49,14 +49,10 @@ class ContactAdapterNew (private var mContext: Context,
 
         btnDelete.setOnClickListener{
             if (position > -1) {
-//                val db = DB.getDB(mContext);
-//                val contactDAO = db.ContactDAO()
-//                contactDAO.deleteContact(contact.contactId)
                 presenter.deleteContact(contact.contactId)
                 (mContact as MutableList).remove(contact)
                 notifyItemRemoved(position)
             }
-//            notifyItemChanged(position)
         }
 
         holder.itemView.setOnClickListener(object :View.OnClickListener{
@@ -70,9 +66,6 @@ class ContactAdapterNew (private var mContext: Context,
                         navController.navigate(R.id.action_contactListFragment_to_contactInfo2, bundle)
                     }
                     else->{
-//                        val db = DB.getDB(mContext);
-//                        val contactDAO = db.ContactDAO()
-//                        contactDAO.deleteContact(contact.contactId)
                         val activity = v!!.context as AppCompatActivity
 //
                         val navController = activity.findNavController(R.id.navHostFragment)

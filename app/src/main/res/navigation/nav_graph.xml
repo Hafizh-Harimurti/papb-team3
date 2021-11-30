@@ -48,8 +48,8 @@
     <fragment
         android:id="@+id/contactListFragment"
         android:name="com.example.tugaspapbkelompok3.fragment.ContactListFragment"
-        android:label="Contact List"
-        tools:layout="@layout/fragment_contact_list" >
+        android:label="Tugas PAPB Kelompok 3"
+        tools:layout="@layout/fragment_contact_list">
         <action
             android:id="@+id/action_contactListFragment_to_contactInfo2"
             app:destination="@id/contactInfo" />
