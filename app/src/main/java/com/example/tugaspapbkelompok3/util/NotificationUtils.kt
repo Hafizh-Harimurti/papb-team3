@@ -12,6 +12,7 @@ val NOTIFICATION_ID = 1
 
 fun NotificationManager.sendNotification(messageBody: String, applicationContext: Context){
     val unfinishedEditIntent = Intent(applicationContext, MainActivity::class.java)
+    unfinishedEditIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
     val unfinishedEditPendingIntent = PendingIntent.getActivity(
         applicationContext,
         NOTIFICATION_ID,
