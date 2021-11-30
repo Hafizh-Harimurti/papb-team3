@@ -19,11 +19,14 @@ import com.example.tugaspapbkelompok3.database.Contact
 import com.example.tugaspapbkelompok3.database.DB
 import com.example.tugaspapbkelompok3.fragment.ContactInfoFragment
 import com.example.tugaspapbkelompok3.mvp_interface.IAddOrEdit
+import com.example.tugaspapbkelompok3.mvp_interface.IContactList
 import com.example.tugaspapbkelompok3.presenter.AddOrEditPresenter
+import com.example.tugaspapbkelompok3.presenter.ContactListPresenter
 
 class ContactAdapterNew (private var mContext: Context,
                          private var mContact: List<Contact>,
-                         private var isFragment: Boolean = false): RecyclerView.Adapter<ContactAdapterNew.ViewHolder>(){
+                         private var isFragment: Boolean = false,
+                         private var presenter: IContactList.IContactListPresenter): RecyclerView.Adapter<ContactAdapterNew.ViewHolder>(){
 
 //    private lateinit var presenter: IAddOrEdit.IAddOrEditPresenter
 
@@ -46,9 +49,10 @@ class ContactAdapterNew (private var mContext: Context,
 
         btnDelete.setOnClickListener{
             if (position > -1) {
-                val db = DB.getDB(mContext);
-                val contactDAO = db.ContactDAO()
-                contactDAO.deleteContact(contact.contactId)
+//                val db = DB.getDB(mContext);
+//                val contactDAO = db.ContactDAO()
+//                contactDAO.deleteContact(contact.contactId)
+                presenter.deleteContact(contact.contactId)
                 (mContact as MutableList).remove(contact)
                 notifyItemRemoved(position)
             }
